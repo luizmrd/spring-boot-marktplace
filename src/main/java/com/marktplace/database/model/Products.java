@@ -27,31 +27,6 @@ public class Products {
         this.price = price;
     }
 
-    public static class Builder{
-
-        private String name;
-        private String category;
-        private String description;
-        private BigDecimal price;
-
-        public Builder name(String name){
-            this.name = name;
-            return this;
-        }
-        public Builder category(String category){
-            this.category = category;
-            return this;
-        }
-        public Builder description(String description){
-            this.description = description;
-            return this;
-        }
-        public Builder price(BigDecimal price){
-            this.price = price;
-            return this;
-        }
-
-    }
 
     public Products(){
     }
