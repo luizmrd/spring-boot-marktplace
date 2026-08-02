@@ -3,10 +3,10 @@ package com.marktplace.service;
 import com.marktplace.database.model.Products;
 import com.marktplace.database.repository.IProductsRepository;
 import com.marktplace.dto.ProductsProjection;
+import com.marktplace.dto.ProductsResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +23,19 @@ public class ProductsService {
 
     public List<Products> getProducts(){
        return productsRepository.findAll();
+    }
+
+    public void  postProducts(ProductsResponseDto productsDto){
+
+        productsRepository.save(
+                Products.builder()
+                        .name(productsDto.getName())
+                        .category(productsDto.getCategory())
+                        .description(productsDto.getDescription())
+                        .price(productsDto.getPrice())
+                        .build()
+        );
+
     }
 
 
