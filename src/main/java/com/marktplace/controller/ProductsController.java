@@ -21,10 +21,10 @@ public class ProductsController {
         this.productsService = productsService;
     }
 
-    @GetMapping
-    public Page<ProductsProjection> getProductsPage(@Valid @RequestParam  String search,
-                                                    @PathVariable Integer page,
-                                                    @PathVariable Integer size){
+    @GetMapping()
+    public Page<ProductsProjection> getProductsPage(@RequestParam  String search,
+                                                    @RequestParam Integer page,
+                                                    @RequestParam Integer size){
         return productsService.getProductsPage(search, page, size);
     }
 
